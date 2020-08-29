@@ -1,0 +1,62 @@
+.main-div{
+  height: 250px;
+  min-width: 700px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.spaceBetweenFlex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space - between;
+}
+#temp {
+    width: 700px;;
+}
+
+#temp2
+{
+  margin-top:2%;
+}
+
+.subtitle-center{
+    justify-content: center; /* for center*/
+    align-items: center
+}
+
+
+ul,  
+li {  
+      margin: 0;  
+      padding: 0;  
+      list-style: none;  
+}
+
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  position: sticky
+}
+    .content {
+      padding: 1rem;
+      border: 1px solid rgb(10, 10, 10) !important;
+      border-radius: 0.1rem;
+    }
+
+.table {
+  width: 100%;
+}
+.filter {
+  width: 25%;
+margin-left:2%;
+}
+.pagin
+{
+  display: flex;
+  justify-content: left;
+}
+h2 {
+  display: flex;
+  justify-content: center;
+}
