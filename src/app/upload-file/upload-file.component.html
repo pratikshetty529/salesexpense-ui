@@ -1,0 +1,108 @@
+<app-loader></app-loader>
+<div class="main-div">
+<mat-card>
+   <mat-card-content>
+    <mat-tab-group #tabs [selectedIndex]="selectedIndex" animationDuration="1500ms" (selectedTabChange)="onLinkClick($event)">
+      <mat-tab >
+      <ng-template mat-tab-label>
+        <mat-icon>account_balance</mat-icon> &nbsp;
+   Balance Sheet </ng-template>
+ <div id="temp">
+    <form [formGroup] = "uploadForm">      
+      <mat-card-subtitle class="subtitle-center">Upload the  Balance sheet in xlsx format</mat-card-subtitle>
+      <div>
+        <input #fileInput type="file" name="profile"  (click)="fileInput.value = null" value="" (change)="onFileSelect($event)" /> 
+      </div>  
+    </form>
+  </div>
+    </mat-tab>
+    <mat-tab  #tab [disabled]='!tab.isActive'>
+      <ng-template mat-tab-label>
+        <mat-icon>cloud_upload</mat-icon> &nbsp;
+      Upload Account List</ng-template>
+      <div id="temp">
+        <form [formGroup] = "uploadForm">      
+          <mat-card-subtitle class="subtitle-center">Upload the  Account list in xlsx format</mat-card-subtitle>
+          <div>
+            <input #fileInput type="file" name="profile" (click)="fileInput.value = null" value="" (change)="onFileSelect($event)" /> 
+          </div>  
+        </form>
+      </div>
+    
+    </mat-tab>
+    </mat-tab-group>
+</mat-card-content> 
+</mat-card>
+</div>
+ <div>
+   
+      <div  [hidden]=!validation id="temp3">
+      <div id="temphead">   <mat-toolbar color="primary"><mat-toolbar-row>	<mat-icon>warning</mat-icon> <span>ERROR</span> <span class="example-spacer"></span></mat-toolbar-row> </mat-toolbar> </div>
+      <h4>Please upload Balance sheet in Balance sheet tab</h4>
+      <button mat-raised-button color="primary" (click)="reset()">OK</button>
+      </div>
+   </div>
+<!-- <div [hidden]=!front class="container">
+  <h2> Vendor List data</h2>
+  <div class="mat-elevation-z8">
+    
+   <mat-form-field class="filter">
+          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+        </mat-form-field>
+  
+   
+    <table mat-table MatSort [dataSource]="dataSource" class="table">
+
+      <ng-container matColumnDef="name">
+         <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+         <td mat-cell *matCellDef="let rowObj"> {{rowObj.name}} </td>
+       </ng-container>
+
+     
+       <ng-container matColumnDef="account" >
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Account </th>
+          <td mat-cell *matCellDef="let rowObj">
+            <ng-container *ngFor="let singleaccount of rowObj.account">{{singleaccount}} <br></ng-container>
+ </td>
+       </ng-container>
+
+      
+      <ng-container matColumnDef="count">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Count </th>
+          <td mat-cell *matCellDef="let rowObj"> 
+            <ng-container *ngFor="let singlecount of rowObj.count">{{singlecount}} <br></ng-container>
+             </td>
+       </ng-container>
+
+
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator  #paginator [pageIndex]="0" [pageSize]="25" [pageSizeOptions]="[25,50,75,100]" showFirstLastButtons></mat-paginator>
+  </div> -->
+<!-- </div> -->
+ 
+<!-- <app-new-display-vendor-list></app-new-display-vendor-list> -->
+<!-- <div style="text-align:center; margin-top: 100px; "><mat-card style="margin-top:10px; width: 50%;">  
+  <mat-card-content>  
+      <ul>  
+          <li *ngFor="let file of files">  
+              <mat-progress-bar [value]="file.progress"></mat-progress-bar>  
+              <span id="file-label">  
+                    
+              </span>  
+          </li>  
+      </ul>  
+  </mat-card-content>  
+  <mat-card-actions>  
+      <button mat-button color="warn" (click)="onClick()">  
+          <mat-icon>file_upload</mat-icon>  
+          Upload  
+      </button>  
+  </mat-card-actions>  
+  
+</mat-card>
+</div>
+<input type="file" #fileUpload id="fileUpload" name="fileUpload" multiple="multiple" accept="image/*" style="display:none;" /> -->
+<app-new-display-vendor-list *ngIf="front"></app-new-display-vendor-list> 
