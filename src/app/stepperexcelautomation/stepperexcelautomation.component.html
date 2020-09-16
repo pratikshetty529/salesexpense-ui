@@ -1,0 +1,49 @@
+<mat-horizontal-stepper>
+
+    <mat-step label="Create vendor list" state="phone">
+      <!-- <app-dropdown-component></app-dropdown-component> -->
+      <app-upload-file > </app-upload-file>
+       <router-outlet></router-outlet>
+    
+       </mat-step>
+  
+    <mat-step label="Upload and Process the bank statement">
+      <!-- <mat-list role ="list">  -->
+        <!-- <mat-list-item> Select the Bank statement </mat-list-item>
+        <mat-list-item> Program will process and create categorized bank statement </mat-list-item>
+       
+       </mat-list> -->
+       <app-pdf-upload></app-pdf-upload>
+      
+      
+       <div>       <button mat-button matStepperPrevious>Previous</button> 
+          <button mat-button matStepperNext>Next</button> </div>
+    </mat-step>
+<!--   
+    <mat-step label="Manual Validation of Opening/Closing Balance">
+      <mat-list role ="list"> 
+        <mat-list-item> Enter Opening and Closing Balance</mat-list-item>
+        <mat-list-item> Program will evaluate and confirm if closing balance matches </mat-list-item>
+       
+       </mat-list>
+       <div>       <button mat-button matStepperPrevious>Previous</button> 
+        <button mat-button matStepperNext>Next</button> </div>
+    </mat-step> -->
+
+    <mat-step label="Generate Sales and Expenses">
+      <mat-list role ="list"> 
+        
+        <mat-list-item> After Validating closing balance web application will generate sales and expenses </mat-list-item>
+       
+       </mat-list>
+       <div>       <button mat-button matStepperPrevious>Previous</button> 
+        <button mat-button matStepperNext>Next</button> </div>
+    </mat-step>
+
+    <!-- <ng-template matStepperIcon="phone">
+      <mat-icon>call_end</mat-icon>
+    </ng-template>
+    <ng-template matStepperIcon="chat">
+      <mat-icon>forum</mat-icon>
+    </ng-template> -->
+  </mat-horizontal-stepper>
