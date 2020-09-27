@@ -1,0 +1,47 @@
+
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+    <span>EXCEL AUTOMATION</span>
+        <span class="example-fill-remaining-space"></span>
+        <span class="align-center"></span>
+        <span class="example-spacer"></span>
+        <button mat-button (click)="showstepper()">Steps </button>
+       
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <mat-icon>dialpad</mat-icon>
+        <span>Redial</span>
+      </button>
+      <button mat-menu-item disabled>
+        <mat-icon>voicemail</mat-icon>
+        <span>Check voicemail</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>notifications_off</mat-icon>
+        <span>Disable alerts</span>
+      </button>
+    </mat-menu>
+     </mat-toolbar-row>
+     </mat-toolbar>
+<div id="containerbox">
+ <div class ="container4" id="container4"> 
+ 
+<input type="file" (change)="onFileChange($event)" multiple="false" /> <br>
+<button (click)="export()">Export!</button>
+ </div>
+</div>
+ <div class="containerbox2" id="containerbox2">
+	<table class="sjs-table" id="sjs-table">
+    	<tbody>
+           
+      <tr *ngFor="let row of data">
+			<td *ngFor="let val of row">
+				{{val}}
+			</td>
+		</tr>
+    </tbody>
+    </table>
+    </div>
+
+
+
