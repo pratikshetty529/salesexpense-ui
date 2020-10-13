@@ -1,0 +1,13 @@
+<div class="main-div2">
+
+    <h2>Select the version to be uploaded</h2>
+ <mat-form-field>
+   <mat-label style="width: 1000px;">Select the version to be uploaded</mat-label>
+   <mat-select  placeholder="Select the version" [(ngModel)]="selectedFood2" (ngModelChange)="onFoodSelection2()">
+     <mat-option *ngFor="let food of foods" [value]="food.value">
+       {{ food.viewValue }}
+     </mat-option>
+   </mat-select>
+ </mat-form-field>
+
+</div>

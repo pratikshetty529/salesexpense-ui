@@ -1,0 +1,45 @@
+<app-loader></app-loader>
+<div class="main-div">
+<mat-card>
+   <mat-card-content>
+   <div id="temp">
+    <form [formGroup] = "uploadForm">      
+      <mat-card-subtitle class="subtitle-center">Upload the  Bank sheet in xlsx format</mat-card-subtitle>
+      <div>
+        <input #fileInput type="file" name="profile"  (click)="fileInput.value = null" value="" (change)="onFileSelect($event)" /> 
+      </div>  
+    </form>
+  </div>
+  
+</mat-card-content> 
+</mat-card>
+</div>
+<!-- <div *ngIf="front">
+<mat-card>
+  <mat-card-header>
+     <h2>Validation of Opening and Closing Balance</h2>
+  </mat-card-header>
+      <mat-card-content>
+          <mat-form-field>
+              <mat-label>Enter Opening Balance</mat-label>
+              <input  matInput  placeholder="Enter Opening Balance" [(ngModel)]="openingBalance"  type="number" name="openingBalance"  required>
+              </mat-form-field> <br>
+              <mat-form-field>
+                  <mat-label>Enter Closing Balance</mat-label>
+              <input  matInput  placeholder="Enter Closing Balance" [(ngModel)]="closingBalance"  type="number"  name="closingBalance"  required>
+              </mat-form-field>
+      </mat-card-content>
+      <mat-card-actions>
+          <button  mat-raised-button (click)="submit()"  color="primary">Submit</button>
+      </mat-card-actions>
+  </mat-card>
+</div> -->
+<!-- <div>
+    <div  [hidden]=!validation id="temp3">
+    <div id="temphead">   <mat-toolbar color="warn"><mat-toolbar-row>	<mat-icon>warning</mat-icon> <span>ERROR</span> <span class="example-spacer"></span></mat-toolbar-row> </mat-toolbar> </div>
+    <h4>Incorrect opening or closing balance</h4>
+    <button mat-raised-button color="warn" (click)="reset()">OK</button>
+    </div>
+ </div>  -->
+<!-- <app-opening-closing-validation *ngIf="front"> </app-opening-closing-validation>  -->
+<app-display-cleaned-bank-statement *ngIf="back"></app-display-cleaned-bank-statement>
