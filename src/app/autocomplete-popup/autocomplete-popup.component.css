@@ -1,0 +1,35 @@
+.mat-cell{
+    font-size:12px;
+    font-family: Verdana,Sans-Serif;
+    display: table-cell;
+    height: 48px;
+
+    }
+
+    .temp4{
+        width: 400px;
+    }
+    table{
+        width: 100%;
+       }
+
+
+       .mat-form-field--inline {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .mat-form-field--inline .mat-form-field {
+        display: inline-block;
+        width: 100%;
+        vertical-align: middle;
+    }
+    
+    .mat-form-field--inline .mat-form-field:nth-child(1) {
+        margin-right: 10px;
+    }
+    #temp5{
+    
+    margin-left: 25%
+    }
