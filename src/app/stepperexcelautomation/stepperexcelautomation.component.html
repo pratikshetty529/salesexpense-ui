@@ -1,0 +1,21 @@
+<mat-horizontal-stepper>
+
+    <mat-step label="Create vendor list" state="phone">
+  
+      <app-upload-file > </app-upload-file>
+       <router-outlet></router-outlet>
+    
+       </mat-step>
+  
+    <mat-step  label="Upload and Process the bank statement">
+
+       <app-pdf-upload></app-pdf-upload>
+      
+      
+   
+    </mat-step>
+    <!-- <mat-step label="Generate Sales and Expenses">
+      <app-sales-expense-send> </app-sales-expense-send>
+    </mat-step> -->
+
+  </mat-horizontal-stepper>
