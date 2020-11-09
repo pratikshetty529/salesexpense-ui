@@ -1,0 +1,169 @@
+<div class="container">
+  <h2> Cleaned Bank Statement</h2>
+  <div class="mat-elevation-z8">
+ 
+    <mat-form-field class="filter">
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+
+    <button class="btn btn-common" (click)="submit()" style="margin-left: 50%">
+      <mat-icon matTooltip="Proceed to Sales and Expense">arrow_forward_ios</mat-icon>
+
+    </button> &nbsp;
+    &nbsp;
+    <button  class="btn btn-common" (click)="test()">
+      <mat-icon matTooltip="Open New vendor list">fiber_new</mat-icon>
+
+       </button>
+      &nbsp;
+      
+      <button class="btn btn-common" (click)="openDescriptionBox()">
+        <!-- <mat-icon  matTooltip="Update Records according to description">open_with</mat-icon> -->
+        <mat-icon  matTooltip="Update Records according to description">update</mat-icon>
+
+        </button>
+        &nbsp;
+    <button mat-icon-button (click)="downloaddataExcel()" > 
+      <mat-icon matTooltip="Download Excel">cloud_download</mat-icon>
+
+    </button>
+    
+
+    <table mat-table MatSort [dataSource]="dataSource" #table class="table">
+
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header style="width:100px"> Date </th>
+        <td mat-cell *matCellDef="let rowObj" [ngClass]="{
+            'is-mastercolor': rowObj.flag === 'M',
+            'is-aquamarine': rowObj.flag === 'N',
+            'is-greenyellow': rowObj.flag === 'V'
+          }"> {{rowObj.date}} </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Description </th>
+        <td mat-cell *matCellDef="let rowObj" [ngClass]="{
+              'is-mastercolor': rowObj.flag === 'M',
+              'is-aquamarine': rowObj.flag === 'N',
+              'is-greenyellow': rowObj.flag === 'V'
+            }"> {{rowObj.description}} </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="amount">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Amount </th>
+        <td mat-cell *matCellDef="let rowObj" [ngClass]="{
+                'is-mastercolor': rowObj.flag === 'M',
+                'is-aquamarine': rowObj.flag === 'N',
+                'is-greenyellow': rowObj.flag === 'V'
+              }"> {{rowObj.amount}} </td>
+      </ng-container>
+
+
+     <ng-container matColumnDef="vendor">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header style="width:300px;text-align: center">Vendor </th>
+        <td mat-cell *matCellDef="let rowObj" [ngClass]="{
+              'is-mastercolor': rowObj.flag === 'M',
+              'is-aquamarine': rowObj.flag === 'N',
+              'is-greenyellow': rowObj.flag === 'V'
+            }" > {{rowObj.vendor}} </td>
+      </ng-container>
+
+   
+
+       
+      <!-- <ng-container matColumnDef="vendor">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header style="width:300px;text-align: center">Vendor </th>
+        
+        <td #myDiv mat-cell *matCellDef="let rowObj" [ngClass]="{
+              'is-mastercolor': rowObj.flag === 'M',
+              'is-aquamarine': rowObj.flag === 'N',
+              'is-greenyellow': rowObj.flag === 'V'
+            }"  (dblclick)="onSelect(option,rowObj)" > 
+            <input type="text" matInput (input)="onInputChanged($event.target.value,rowObj)" [matAutocomplete]="auto" >
+           {{rowObj.vendor}}
+            <mat-autocomplete #auto="matAutocomplete" >
+             
+              <mat-option (click)="onSelect(option,rowObj)" *ngFor="let option of Options" [value]="option">{{ option }}</mat-option>
+            </mat-autocomplete>
+          </td>
+      </ng-container> -->
+
+
+      <ng-container matColumnDef="account">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header style="width:250px;text-align: center">Account </th>
+        <td mat-cell *matCellDef="let rowObj" [ngClass]="{
+              'is-mastercolor': rowObj.flag === 'M',
+              'is-aquamarine': rowObj.flag === 'N',
+              'is-greenyellow': rowObj.flag === 'V'
+            }">
+          <editable (update)="updateField(index, 'symbol')">
+            {{rowObj.account}}
+          </editable>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="displaypopup">
+        <th mat-header-cell *matHeaderCellDef style="width:100px;text-align: center;"> Actions </th>
+        <td mat-cell *matCellDef="let element" [ngClass]="{
+          'is-mastercolor': element.flag === 'M',
+          'is-aquamarine': element.flag === 'N',
+          'is-greenyellow': element.flag === 'V'
+        }">
+          <button mat-icon-button color="primary" (click)="openDialog(element)"
+            aria-label="Example icon button with a home icon">
+            <!-- <mat-icon>edit</mat-icon> -->
+            EDIT
+          </button>|
+          <button mat-icon-button color="primary" (click)="deleteItem(element)"
+            aria-label="Example icon button with a home icon">
+            <!-- <mat-icon>launch</mat-icon> -->
+            POP UP
+          </button>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="Flag">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Flag </th>
+        <td mat-cell *matCellDef="let rowObj" style="text-align:center" [ngClass]="{
+          'is-mastercolor': rowObj.flag === 'M',
+          'is-aquamarine': rowObj.flag === 'N',
+          'is-greenyellow': rowObj.flag === 'V'
+        }"> {{rowObj.flag}} </td>
+      </ng-container>
+      <!-- <ng-container matColumnDef="editRow">
+      <th mat-header-cell *matHeaderCellDef> Edit </th>
+      <td mat-cell *matCellDef="let element">
+         <button mat-icon-button color="primary" (click)="openDialog(element)" aria-label="Example icon button with a home icon">
+          <mat-icon>edit</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+   -->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" ></tr>
+    </table>
+    <mat-paginator #paginator [pageIndex]="0" [pageSize]="25" [pageSizeOptions]="[25,50,75,100]" showFirstLastButtons>
+    </mat-paginator>
+
+  </div>
+  <div id="temp4">
+    <!-- <button button mat-raised-button color="primary" class="btn btn-common" (click)="submit()">Save</button> &nbsp;
+    &nbsp;
+    <button *ngIf="buttonDisabled" button mat-raised-button color="primary" class="btn btn-common" (click)="test()">
+      View new vendor list </button> -->
+  </div>
+  <div [hidden]=!validation id="temp3">
+    <div id="temphead">
+       <mat-toolbar color="warn">
+        <mat-toolbar-row>
+          <mat-icon>warning</mat-icon>
+          <span>ERROR</span>
+          <span class="example-spacer"></span>
+        </mat-toolbar-row>
+      </mat-toolbar>
+    </div>
+    <h4>Some records of vendor and account are blank</h4>
+    <button mat-raised-button color="warn" (click)="reset()">OK</button>
+  </div>
+  <!-- <app-display-new-vendors *ngIf="displayVendorComponent"></app-display-new-vendors> -->
+  <app-autocomplete-popup *ngIf="loadComponent"></app-autocomplete-popup>
