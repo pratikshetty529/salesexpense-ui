@@ -1,0 +1,109 @@
+.main-div{
+    height: 250px;
+    min-width: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  body, html{
+    height: 100%;
+    margin: 0;
+  }
+  mat-form-field {
+    width: 100%;
+  }
+  :host { min-height: 100vh; }
+  .spaceBetweenFlex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space - between;
+  }
+  #temp {
+      width: 700px;
+  }
+  .main-div2{
+    width: 1300px;
+    border: 1px solid black;
+    padding: 20px;
+    margin: 5px;
+  }
+  #temp2
+  {
+    margin-top:2%;
+  }
+  #temp3{
+    /* height: 175px;
+    margin-left: 41%;
+  width:350px; */
+  /* border: 1px solid #000; */
+  
+  font-size: 1em;
+  text-align: center;
+  }
+  .mat-icon {
+    margin-left: 25%;
+  }
+  #temphead
+  {
+    display: flex;
+    justify-content: center;
+  }
+  .subtitle-center{
+      margin-top: 4%;
+      justify-content: center; /* for center*/
+      align-items: center
+  }
+  .my-class{
+    width: 100px!important;
+    min-width: unset!important;
+  }
+  
+  ul,  
+  li {  
+        margin: 0;  
+        padding: 0;  
+        list-style: none;  
+  }
+  
+  
+  .container {
+    width: 100%;
+    margin: 0 auto;
+    position: sticky
+  }
+      .content {
+        padding: 1rem;
+        border: 1px solid rgb(10, 10, 10) !important;
+        border-radius: 0.1rem;
+      }
+  
+  .table {
+    width: 100%;
+  }
+  .filter {
+    width: 25%;
+  margin-left:2%;
+  }
+  .pagin
+  {
+    display: flex;
+    justify-content: left;
+  }
+  h2 {
+    display: flex;
+    justify-content: center;
+  }
+  h4 {
+    margin-top:5%;
+    display: flex;
+    justify-content: center;
+  }
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+  
+  .ScrollStyle
+{
+    max-height: 200px;
+    overflow-y: scroll;
+}

@@ -1,0 +1,90 @@
+.app-splash-screen {
+    background: #4d36d1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    transition: left 0.5s;
+  }
+  
+  .app-label {
+    margin-top: 32px;
+    color: #fff;
+    font-size: 2.5em;
+    font-family: "Pacifico", cursive;
+  }
+  
+  .app-splash-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .app-logo {
+    /* background: url("../assets/lighty.svg"); */
+    background: url("./../../assets/three-loadingicons.svg");
+    background-repeat: no-repeat;
+    max-width: 100%;
+    background-position: center;
+    background-size: contain;
+    width: 100px;
+    height: 100px;
+    transform-origin: 5px 15px;
+    /* animation: dotWindmill 2s infinite linear; */
+  }
+  
+  .app-loader {
+    background: url("./../../assets/three-loadingicons.svg");
+    /* background: url("../assets/three-dots.svg"); */
+    background-repeat: no-repeat;
+    max-width: 100%;
+    background-position: center;
+    background-size: contain;
+    width: 80px;
+    height: 80px;
+    margin-top: 80px;
+  }
+
+  .dot-windmill::before, .dot-windmill::after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+  }
+  
+  .dot-windmill::before {
+    left: -8.66px;
+    top: 15px;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #9880ff;
+    color: #9880ff;
+  }
+  
+  .dot-windmill::after {
+    left: 8.66px;
+    top: 15px;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #9880ff;
+    color: #9880ff;
+  }
+  
+  @keyframes dotWindmill {
+    0% {
+      transform: rotateZ(0deg) translate3d(0, 0, 0);
+    }
+    100% {
+      transform: rotateZ(720deg) translate3d(0, 0, 0);
+    }
+  }
+  

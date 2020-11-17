@@ -1,0 +1,17 @@
+{
+   "api":[ {
+    "vendorList": null,
+    "accountList" : null,
+    "fullAccountList": null,
+    "errorMessage": [
+        "Amount value is negative for Deposit at line no: 919",
+        "Amount value is negative for Deposit at line no: 1066",
+        "Amount value is negative for Deposit at line no: 1067",
+        "Amount value is negative for Deposit at line no: 1068",
+        "Amount value is negative for Deposit at line no: 1145",
+        "Amount value is negative for Deposit at line no: 1150",
+        "Amount value is negative for Deposit at line no: 1160"
+    ]
+}
+]
+}
