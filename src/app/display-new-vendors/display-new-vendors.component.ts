@@ -81,7 +81,7 @@ export class DisplayNewVendorsComponent  {
         'newVendorDetails': newArray
     });
    
-    this.httpClient.post<any>('https://salesexpense.herokuapp.com/salesexpense/addnewvendordetails', node_form_data).subscribe(  
+    this.httpClient.post<any>('https://salesexpense.osc-fr1.scalingo.io/salesexpense/addnewvendordetails', node_form_data).subscribe(  
       (res) =>  this.displayvendor() ,
       (err) => this.displayerror(err)
     )

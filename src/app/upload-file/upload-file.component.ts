@@ -19,7 +19,7 @@ import { ErrorMEssageforAccountUploadComponent } from '../error-messagefor-accou
 })
 
 export class UploadFileComponent implements OnInit {
-  SERVER_URL=" https://salesexpense.herokuapp.com/salesexpense/uploaddocuments";
+  SERVER_URL=" https://salesexpense.osc-fr1.scalingo.io/salesexpense/uploaddocuments";
   LOCAL_URL="http://localhost:3000/vendorList";
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;

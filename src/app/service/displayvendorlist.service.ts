@@ -14,7 +14,7 @@ export class DisplayvendorlistService {
   public fullAccountList:any[]
   public Opis :Ivendor[];
   public MasterVendor : any[]
-  SERVER_URL=" https://salesexpense.herokuapp.com/salesexpense/uploaddocuments";
+  SERVER_URL=" https://salesexpense.osc-fr1.scalingo.io/salesexpense/uploaddocuments";
   public apiData: any[];
   constructor(private http:HttpClient) { }
  

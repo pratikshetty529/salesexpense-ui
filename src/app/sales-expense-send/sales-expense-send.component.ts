@@ -113,7 +113,7 @@ let abc=test['closingBalance']
     });
     debugger;
     
-    this.httpClient.post<any>('https://salesexpense.herokuapp.com/salesexpense/generatesalesexpense', node_form_data).subscribe(  
+    this.httpClient.post<any>('https://salesexpense.osc-fr1.scalingo.io/salesexpense/generatesalesexpense', node_form_data).subscribe(  
       (res) =>  this.displayvendor(res) ,
       (err) => this.displayerror(err)
     )

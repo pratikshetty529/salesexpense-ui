@@ -24,7 +24,7 @@ export class PdfUploadComponent implements OnInit {
   tes2 =new FormData();
   public  validation:boolean=false;
   LOCAL_URL="http://localhost:3000/cleanedBankStatement";
-  SERVER_URL="https://salesexpense.herokuapp.com/salesexpense/processbankstatement"
+  SERVER_URL="https://salesexpense.osc-fr1.scalingo.io/salesexpense/processbankstatement"
   constructor( private formBuilder: FormBuilder,
     private httpClient: HttpClient,
     private displayVendorService : DisplayvendorlistService,
@@ -123,7 +123,7 @@ displayValidationPopup(res,vendorList)
 
 fetchCleanedBankStatement()
 {
-    this.httpClient.get<any>('https://salesexpense.herokuapp.com/salesexpense/getmastervendorlist').subscribe(  
+    this.httpClient.get<any>('https://salesexpense.osc-fr1.scalingo.io/salesexpense/getmastervendorlist').subscribe(  
     (res) => this.displaymastervendor(res) ,
     (err) => this.displayerror(err)
   )
